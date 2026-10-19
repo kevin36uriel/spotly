@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/kevin36uriel/spotly-config
+          default-label: main
+          clone-on-start: false
+          username: ${GITHUB_USER}
+          password: ${GITHUB_PASSWORD}
+server:
+  port: 8888

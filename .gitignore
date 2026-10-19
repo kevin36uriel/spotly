@@ -1,0 +1,8 @@
+.idea/
+*.iml
+.env
+.DS_Store
+target/
+build/
+.gradle/
+spotly-config/
