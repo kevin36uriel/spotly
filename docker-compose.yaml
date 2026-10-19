@@ -24,7 +24,7 @@ services:
   keycloak-spotly:
     image: quay.io/keycloak/keycloak:24.0.1
     container_name: keycloak-spotly
-    command: start-dev
+    command: start-dev --import-realm
     environment:
       KC_DB: postgres
       KC_DB_URL: jdbc:postgresql://keycloak-db-spotly:5432/keycloak-db-spotly
@@ -34,12 +34,11 @@ services:
       KEYCLOAK_ADMIN_PASSWORD: admin
     ports:
       - "8080:8080"
+    volumes:
+      - ./keycloak:/opt/keycloak/data/import
     depends_on:
       - keycloak-db-spotly
 
 volumes:
   mysql_data:
   keycloak_data_spotly:
-
-
-  
