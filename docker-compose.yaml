@@ -39,6 +39,25 @@ services:
     depends_on:
       - keycloak-db-spotly
 
+  rabbitmq-spotly:
+    image: rabbitmq:4.2-management
+    container_name: rabbitmq-spotly
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - rabbitmq_data_spotly:/var/lib/rabbitmq
+
+  redis-spotly:
+    image: redis:8-alpine
+    container_name: redis-spotly
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data_spotly:/data
+
 volumes:
   mysql_data:
   keycloak_data_spotly:
+  rabbitmq_data_spotly:
+  redis_data_spotly:
